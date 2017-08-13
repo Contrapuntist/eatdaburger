@@ -1,7 +1,15 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var methodOverride = require("method-override");
+const express = require("express");
+const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 
-var app = express();
-var port = 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Require routing files to be accessed 
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+
+// Server listening function 
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+});
