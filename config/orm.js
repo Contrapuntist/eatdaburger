@@ -1,17 +1,17 @@
 // Importing SQL Connection Setup
-const connection = require('./connection'); 
+const connection = require('./connection.js'); 
 
-
-// 
+// mysql functions in object relation map format
 var orm = {
-    selectAll: function(tableName, cb) {
-        var queryStr = "SELECT * FROM " + tableName; 
-        conenction.query(queryStr, function(err, res){
+    selectAll: function(tableName) {
+        var queryStr = "SELECT * FROM " + tableName;
+        console.log(queryStr); 
+        connection.query(queryStr, function(err, res){
             if (err) {
                 throw err;
             }
             // cb(res); 
-            conosle.log(res);
+            console.log(res);
         })
 
     }, 
@@ -30,7 +30,9 @@ var orm = {
     updateOne: function(table, col, val, cb) { 
         var queryStr = "UPDATE " + table + " SET ?? where ?";
         connection.query(queryStr, function (err, res) {
-
+            console.log(res);
         });
     }
-}
+} 
+
+orm.selectAll("burgers");
