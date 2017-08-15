@@ -1,6 +1,6 @@
 -- Seeding burger_db with data 
 
-USE burgers_db; 
+-- USE burgers_db; 
 
 INSERT into burgers (burger_name, devoured) VALUES ('Royal with Cheese', false ); 
 INSERT into burgers (burger_name, devoured) VALUES ('Hot n\' Spicy', false);

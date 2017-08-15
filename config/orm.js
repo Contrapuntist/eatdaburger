@@ -16,9 +16,11 @@ var orm = {
 
     }, 
 
-    insertOne: function(table, col, val, cb) {
-        var queryStr = "INSERT INTO " + table + "?? VALUES ??";
-        connection.query(queryStr, function (err, res) {
+    insertOne: function(table, cols, vals) {
+// 
+
+        var queryStr = "INSERT INTO " + table + " SET ? ";
+        connection.query(queryStr, newObj, function (err, res) {
             if (err) {
                 throw err;
             } 
@@ -27,12 +29,37 @@ var orm = {
         }); 
     }, 
 
-    updateOne: function(table, col, val, cb) { 
-        var queryStr = "UPDATE " + table + " SET ?? where ?";
+    updateOne: function(table, col, val) { 
+        var queryStr = "UPDATE " + table + " SET ? where ?";
         connection.query(queryStr, function (err, res) {
             console.log(res);
         });
     }
 } 
 
-orm.selectAll("burgers");
+
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
+// orm.selectAll("burgers");
+var testCol = ['burger_name', 'devoured'];
+var testVal = ['Groot Burger', false]; 
+var testObj = {
+    "burger_name": "Groot Burger",
+    "devoured": false
+};
+
+var updateSet = '[ "devoured =" + false ]'
+
+var updateWhere = '["burger_name = The Heartburn"]';
+// orm.insertOne('burgers', testCol, testVal); 
+orm.updateOne('burgers', updateSet, updateWhere);
