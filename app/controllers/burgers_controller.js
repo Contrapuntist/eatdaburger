@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router(); 
 var burger = require('../models/burger.js');
 
-// router.get('/', function (req, res) {
-//     burger.all(function(data) {
-//         var allBurgersObj = {
-//             burgers: data
-//         }
-//         console.log(allBurgersObj);
-//         res.render('index', allBurgersObj);
-//     });
-// });
+router.get('/', function (req, res) {
+    burger.all(function(data) {
+        var allBurgersObj = {
+            burgers: data
+        }
+        console.log(allBurgersObj);
+        res.render('index', allBurgersObj);
+    });
+});
 
 // // SQL statement: INSERT INTO table (column1, etc.) VALUES (Val for col1, etc.);
 // router.post('/:burger', function(req, res) { 

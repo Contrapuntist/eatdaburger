@@ -1,0 +1,12 @@
+body{
+    background-color: #bbbbbb; 
+}
+ 
+p {
+    font-size: 20px;
+}
+.container { 
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+}

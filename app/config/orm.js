@@ -3,17 +3,16 @@ const connection = require('./connection.js');
 
 // mysql functions in object relation map format
 var orm = {
-    selectAll: function(tableName) {
+    selectAll: function(tableName, cb) {
         var queryStr = "SELECT * FROM " + tableName;
         console.log(queryStr); 
         connection.query(queryStr, function(err, res){
             if (err) {
                 throw err;
             }
-            // cb(res); 
+            cb(res); 
             console.log(res);
         })
-
     }, 
 
     // insertOne: function(table, cols, vals) {
@@ -57,13 +56,11 @@ var testObj = {
     "burger_name": "Groot Burger",
     "devoured": false
 };
-
 var updateSet = '[ "devoured =" + false ]'
-
 var updateWhere = '["burger_name = The Heartburn"]';
+
 // orm.insertOne('burgers', testCol, testVal); 
 // orm.updateOne('burgers', updateSet, updateWhere);
-
 // orm.insertOne('burger', testCol, testVal); 
 
 module.exports = orm;
