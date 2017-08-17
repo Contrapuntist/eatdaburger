@@ -16,18 +16,18 @@ var orm = {
 
     }, 
 
-    insertOne: function(table, cols, vals) {
-// 
+    // insertOne: function(table, cols, vals) {
+    // // SQL syntax: Insert INTO table (column1, etc.) values (value1, etc.);   
 
-        var queryStr = "INSERT INTO " + table + " SET ? ";
-        connection.query(queryStr, newObj, function (err, res) {
-            if (err) {
-                throw err;
-            } 
-            // cb(res);
-            console.log(res); 
-        }); 
-    }, 
+    //     var queryStr = "INSERT INTO " + table + " ?? VALUES ? ";
+    //     connection.query(queryStr, cols, vals, function (err, res) {
+    //         if (err) {
+    //             throw err;
+    //         } 
+    //         // cb(res);
+    //         console.log(res); 
+    //     }); 
+    // }, 
 
     updateOne: function(table, col, val) { 
         var queryStr = "UPDATE " + table + " SET ? where ?";
@@ -62,4 +62,8 @@ var updateSet = '[ "devoured =" + false ]'
 
 var updateWhere = '["burger_name = The Heartburn"]';
 // orm.insertOne('burgers', testCol, testVal); 
-orm.updateOne('burgers', updateSet, updateWhere);
+// orm.updateOne('burgers', updateSet, updateWhere);
+
+// orm.insertOne('burger', testCol, testVal); 
+
+module.exports = orm;

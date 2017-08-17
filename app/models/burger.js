@@ -1,4 +1,4 @@
-var orm = require('../db/orm.js');
+var orm = require('../config/orm.js');
 
 var burger = {
     all: function(cb) {
@@ -6,4 +6,6 @@ var burger = {
             cb(res); 
         });
     }
-}
+} 
+
+module.exports = burger;
