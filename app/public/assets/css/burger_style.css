@@ -4,9 +4,35 @@ body{
  
 p {
     font-size: 20px;
+    padding-left: 10px;
 }
+
+form { 
+    display: block;
+    padding-left: 5px;
+    margin: auto;
+}
+
 .container { 
     width: 1000px;
+    margin: auto;
+} 
+
+.burgersides { 
     display: flex;
-    flex-direction: column;
+    align-content: space-around;
+}
+
+.halfofcontainer { 
+    width: 500px;
+}
+
+.burger {
+    margin: auto;
+    display: flex;
+    align-items: center; 
+} 
+
+.addaburger { 
+    margin-top: 25px;
 }

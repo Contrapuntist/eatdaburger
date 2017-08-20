@@ -1,35 +1,36 @@
 <div class="container">
 
-    <h1>Eat the burger</h1> 
-
-    <div>
-        {{#each burgers}} 
-            {{#unless this.devoured}} 
-            <div>
-            <p> {{this.id}}. {{this.burger_name}} </p>
-            </div>
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name"devoured" values="true">
-                    <div>
+    <h1>Eat a burger</h1> 
+    <div class="burgersides">
+        <div class="halfofcontainer">
+            <h2>Burgers ready to eat</h2>
+            {{#each burgers}} 
+                {{#unless this.devoured}} 
+                <div class="burger">
+                <p> {{this.id}}. {{this.burger_name}} </p>
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name"devoured" values="true">
                         <button>Devour Burger</button>
-                    </div>
-                </form>    
-            {{/unless}}
-        {{/each}}
-    </div>
-    
-    <div>
-        {{#each burgers}}
-            {{#if this.devoured}}
-                <div>
-                {{this.id}}. {{this.burger_name}}
-                </div>
+                    </form>  
+                </div>  
+                {{/unless}}
+            {{/each}}
+        </div>
         
-            {{/if}}
-        {{/each}} 
+        <div class="halfofcontainer">
+            <h2>Burgers Devoured</h2>
+            {{#each burgers}}
+                {{#if this.devoured}}
+                    <div>
+                    {{this.id}}. {{this.burger_name}}
+                    </div>
+            
+                {{/if}}
+            {{/each}} 
+        </div>
     </div>
-    
-    <div>
+    <div class="addaburger">
+        <h2>Add a burger. The more the merrier!!</h2>
         <form action="/" method="POST" id="newburger"> 
             <textarea form="newburger" name="burgerentry" cols="50" rows="8"></textarea>
             <input type="hidden" id="devour" name="devour" value="0">
