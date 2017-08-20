@@ -1,7 +1,36 @@
+/* Color scheme
+
+https://coolors.co/b88f4d-debb5f-55473a-deca88-e6e6e6
+#b88f4d
+#debb5f
+#554738
+#deca88
+#e6e6e6
+
+*/
+
 body{
-    background-color: #bbbbbb; 
+    background-color: #55473a;
+    color: #e6e6e6; 
+    font-family: 'Nunito', sans-serif;
 }
- 
+
+h1, h2 { 
+    font-family: 'Lemon', cursive;
+    color: #deca88; 
+} 
+
+h1 { 
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+h2 { 
+    font-size:35px;
+    margin-top: 0px;
+    letter-spacing: 1px;
+}
+
 p {
     font-size: 20px;
     padding-left: 10px;
@@ -11,6 +40,14 @@ form {
     display: block;
     padding-left: 5px;
     margin: auto;
+}
+
+button { 
+    border: none;
+    background-color: #b88f4d;
+    padding: 5px;
+    border: 1px solid #deca88;
+    border-radius: 3px;
 }
 
 .container { 
