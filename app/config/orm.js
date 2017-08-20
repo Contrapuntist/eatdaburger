@@ -48,7 +48,6 @@ var orm = {
     }
 } 
 
-
 function qMarks (arrLength) { 
     var qArr = [];
     for (var i = 0; i < arrLength; i++ ) { 
@@ -58,14 +57,14 @@ function qMarks (arrLength) {
 } 
 
 // / orm.selectAll("burgers");
-var testCol = ['burger_name', 'devoured'];
-var testVal = ['Groot Burger', false]; 
-var testObj = {
-    "burger_name": "Groot Burger",
-    "devoured": false
-};
-var updateSet = '[ "devoured =" + false ]'
-var updateWhere = '["burger_name = The Heartburn"]';
+// var testCol = ['burger_name', 'devoured'];
+// var testVal = ['Groot Burger', false]; 
+// var testObj = {
+//     "burger_name": "Groot Burger",
+//     "devoured": false
+// };
+// var updateSet = '[ "devoured =" + false ]'
+// var updateWhere = '["burger_name = The Heartburn"]';
 
 
 // orm.updateOne('burgers', updateSet, updateWhere);
