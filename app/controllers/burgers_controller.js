@@ -17,13 +17,13 @@ router.post('/', function(req, res) {
     console.log(req.body.devour);
     console.log(req.body.burgerentry); 
     // res.redirect('/');
-    // Define params for new burger
-    // var test = req.params.burger;
-    // sending to module 
-    // burger.create(['test'], ['test'], function() {
-    //     // redirect to index with updated data 
-    //     res.redirect('/');
-    // });
+    // Setting up data to send to model
+    var burgCols = '"burger_name", "devoured"'; 
+    var burgVals =  [req.body.burgerentry, req.body.devour];
+    burger.create(burgCols, burgVals, function() {
+        // redirect to index with updated data 
+        res.redirect('/');
+    });
 });
 
 // // SQL statement:  UPDATE table SET col = value where condition;  [condition may vary]
