@@ -11,27 +11,26 @@ var orm = {
                 throw err;
             }
             cb(res); 
-            console.log(res);
+            // console.log(res);
         })
     }, 
 
     create: function(table, cols, vals, cb) {
     // SQL syntax: Insert INTO table (column1, etc.) values (value1, etc.);   
-    console.log("columns passed in orm: " + cols);
+    // console.log("columns passed in orm: " + cols);
     
     // matching '?' marks for mysql query string
     var totalValsQMarks = qMarks(vals.length);
-    console.log(totalValsQMarks);
+    // console.log(totalValsQMarks);
     
     // var colString = cols.toString(); 
     // console.log(colString); 
     
     var queryStr = "INSERT INTO " + table + " (" + cols + ") VALUES (" + totalValsQMarks + " ) ";
-    // queryStr = mysql.format(queryStr, cols, vals);
     
     console.log(queryStr);
         connection.query(queryStr, vals, function (err, res) {
-            console.log(query.sql);
+            console.log(queryStr.sql);
             if (err) {
                 throw err;
             } 
@@ -40,10 +39,11 @@ var orm = {
         }); 
     }, 
 
-    update: function(table, cols, vals) { 
-        var queryStr = "UPDATE " + table + " SET ? where ?";
-        connection.query(queryStr, cols, vals, function (err, res) {
+    update: function(table, updateVal, condition, cb) { 
+        var queryStr = "UPDATE " + table + " SET " + updateVal + " WHERE " + condition;
+        connection.query(queryStr, function (err, res) {
             console.log(res);
+            cb(res)
         });
     }
 } 
@@ -57,19 +57,7 @@ function qMarks (arrLength) {
     return qArr.toString();
 } 
 
-function objToSql(ob) {
-  var arr = [];
-
-  for (var key in ob) {
-    if (Object.hasOwnProperty.call(ob, key)) {
-      arr.push(key + "=" + ob[key]);
-    }
-  }
-
-  return arr.toString();
-}
-
-// orm.selectAll("burgers");
+// / orm.selectAll("burgers");
 var testCol = ['burger_name', 'devoured'];
 var testVal = ['Groot Burger', false]; 
 var testObj = {
@@ -79,8 +67,8 @@ var testObj = {
 var updateSet = '[ "devoured =" + false ]'
 var updateWhere = '["burger_name = The Heartburn"]';
 
-// orm.insertOne('burgers', testCol, testVal); 
+
 // orm.updateOne('burgers', updateSet, updateWhere);
-// orm.insertOne('burger', testCol, testVal); 
+
 
 module.exports = orm;
